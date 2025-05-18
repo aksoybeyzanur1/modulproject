@@ -1,0 +1,25 @@
+Rin = 1e3;           
+Rf = 100e3;          
+Vcc = 9;             
+Vin = 0:0.005:0.2;   
+
+Av = 1 + (Rf / Rin);  
+Vout = Av * Vin;      
+
+Vout(Vout > Vcc) = Vcc;
+
+figure;
+
+subplot(1,2,1);
+plot(Vin, Vin, 'g', 'LineWidth', 2);
+xlabel('Input Voltage (Vin)');
+ylabel('Voltage (V)');
+title('Input Voltage');
+grid on;
+
+subplot(1,2,2);
+plot(Vin, Vout, 'b', 'LineWidth', 2);
+xlabel('Input Voltage (Vin)');
+ylabel('Voltage (V)');
+title('Output Voltage (Vout)');
+grid on
